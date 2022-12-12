@@ -156,7 +156,8 @@
                     <base-button
                         :editor="editor"
                         :clickMethod="addVideo"
-                        title="Add Youtube video"
+                        :icon="['fas', 'video']"
+                        title="Add video"
                     >
                     </base-button>
                   </div>

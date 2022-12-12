@@ -7,10 +7,10 @@
             leading-none text-xs
             rounded shadow
             tiptap-button
-            
+
         "
         style="margin: 4px; min-width: 32px; height: 32px"
-        :class="{ 
+        :class="{
             'bg-primary-500 hover:bg-primary-400 text-white': isActive,
             'bg-white hover:bg-gray-200 text-black': !isActive,
             'opacity-50 pointer-events-none': isDisabled,
@@ -19,7 +19,7 @@
         @mouseout="hovered = false"
         @click="callClickMethod"
     >
-        <div 
+        <div
             class="
                 pointer-events-none
                 absolute left-0 w-full flex justify-center
@@ -27,10 +27,10 @@
             style="z-index: 100; bottom: 36px;"
             v-show="hovered"
         >
-            <div 
+            <div
                 v-html="title"
                 class="
-                    whitespace-nowrap bg-black 
+                    whitespace-nowrap bg-black
                     text-2xs text-white font-semibold capitalize
                     px-1 py-px rounded
                 "
@@ -64,31 +64,31 @@ import {
     faCube
 } from '@fortawesome/pro-regular-svg-icons';
 
-import { 
-    faAlignCenter,
-    faAlignJustify,
-    faAlignLeft,
-    faAlignRight,
-    faBold,
-    faCode,
-    faCubes,
-    faFileCode,
-    faHighlighter,
-    faImage,
-    faItalic,
-    faLink, 
-    faListOl,
-    faListUl,
-    faParagraph,
-    faQuoteRight,
-    faRedoAlt,
-    faStrikethrough,
-    faSubscript,
-    faSuperscript,
-    faTable,
-    faUnderline,
-    faUndoAlt,
-    faUnlink
+import {
+  faAlignCenter,
+  faAlignJustify,
+  faAlignLeft,
+  faAlignRight,
+  faBold,
+  faCode,
+  faCubes,
+  faFileCode,
+  faHighlighter,
+  faImage,
+  faItalic,
+  faLink,
+  faListOl,
+  faListUl,
+  faParagraph,
+  faQuoteRight,
+  faRedoAlt,
+  faStrikethrough,
+  faSubscript,
+  faSuperscript,
+  faTable,
+  faUnderline,
+  faUndoAlt,
+  faUnlink, faVideo
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -106,7 +106,7 @@ library.add(
     faImage,
     faImagePolaroid,
     faItalic,
-    faLink, 
+    faLink,
     faListOl,
     faListUl,
     faParagraph,
@@ -119,7 +119,8 @@ library.add(
     faTable,
     faUnderline,
     faUndoAlt,
-    faUnlink
+    faUnlink,
+    faVideo
 );
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -131,7 +132,7 @@ export default {
         }
     },
     props: [
-        'clickMethod', 
+        'clickMethod',
         'clickMethodParameters',
         'title',
         'isActive',
@@ -148,7 +149,7 @@ export default {
         callClickMethod() {
             let tmpParams = this.clickMethodParameters
             if (tmpParams) {
-                
+
                 if (!typeof(tmpParams) != 'object') {
                     tmpParams = [tmpParams];
                 }
