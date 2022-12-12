@@ -151,28 +151,27 @@
                         </table-buttons>
                     </div>
 
-                  <normal-button
+                  <base-button
                       :editor="editor"
                       :clickMethod="addVideo"
                   >
-                  </normal-button>
-                  <div @click.prevent="addVideo">button</div>
-                  <input
-                      id="width"
-                      type="number"
-                      v-model="width"
-                      placeholder="width"
-                      min="320"
-                      max="1024"
-                  >
-                  <input
-                      id="height"
-                      type="number"
-                      v-model="height"
-                      placeholder="height"
-                      min="180"
-                      max="720"
-                  >
+                  </base-button>
+<!--                  <input-->
+<!--                      id="width"-->
+<!--                      type="number"-->
+<!--                      v-model="width"-->
+<!--                      placeholder="width"-->
+<!--                      min="320"-->
+<!--                      max="1024"-->
+<!--                  >-->
+<!--                  <input-->
+<!--                      id="height"-->
+<!--                      type="number"-->
+<!--                      v-model="height"-->
+<!--                      placeholder="height"-->
+<!--                      min="180"-->
+<!--                      max="720"-->
+<!--                  >-->
                 </div>
 
                 <div
@@ -387,7 +386,7 @@ export default {
             }
         },
         addVideo() {
-          const url = 'https://www.youtube.com/watch?v=0gNauGdOkro';
+          const url = prompt('Enter YouTube URL');
 
           this.editor.commands.setYoutubeVideo({
             src: url,
