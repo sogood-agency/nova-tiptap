@@ -151,9 +151,12 @@
                         </table-buttons>
                     </div>
 
-                  <button id="add" @click="addVideo">
-                    Add YouTube video
-                  </button>
+                  <normal-button
+                      :editor="editor"
+                      :clickMethod="addVideo"
+                  >
+                  </normal-button>
+                  <div @click.prevent="addVideo">button</div>
                   <input
                       id="width"
                       type="number"
