@@ -384,7 +384,7 @@ export default {
             }
         },
         addVideo() {
-          const url = prompt('Enter YouTube URL')
+          const url = 'https://www.youtube.com/watch?v=0gNauGdOkro';
 
           this.editor.commands.setYoutubeVideo({
             src: url,
