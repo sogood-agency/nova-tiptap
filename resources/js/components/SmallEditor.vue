@@ -43,6 +43,28 @@
                                 </link-button>
                             </template>
 
+                            <template v-if="button == 'youtube'">
+                              <button id="add" @click="addVideo">
+                                Add YouTube video
+                              </button>
+                              <input
+                                  id="width"
+                                  type="number"
+                                  v-model="width"
+                                  placeholder="width"
+                                  min="320"
+                                  max="1024"
+                              >
+                              <input
+                                  id="height"
+                                  type="number"
+                                  v-model="height"
+                                  placeholder="height"
+                                  min="180"
+                                  max="720"
+                              >
+                            </template>
+
                             <template v-else>
                                 <normal-button
                                     :editor="editor"
@@ -172,7 +194,7 @@ export default {
             Superscript,
 
             Heading.configure({
-                levels: [2, 3, 4],
+                levels: [1, 2, 3, 4],
             }),
             BulletList,
             HorizontalRule,
