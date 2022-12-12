@@ -1,24 +1,24 @@
 <template>
     <div>
-        <div 
+        <div
             class="
                 nova-tiptap-editor
                 mt-3
                 form-input-bordered w-full
                 pt-2 pb-2
-            "            
-        >   
+            "
+        >
             <div
                 class="
-                    w-full 
+                    w-full
                     bg-40 rounded-lg
                     mb-4
                 "
             >
                 <template>
                     <div class="p-1">
-                        <div 
-                            v-for="button in buttons" 
+                        <div
+                            v-for="button in buttons"
                             :key="'button-'+button"
                             class="inline-block"
                         >
@@ -55,7 +55,7 @@
                     </div>
                 </template>
             </div>
-            
+
             <editor-content :editor="editor" />
         </div>
     </div>
@@ -93,6 +93,8 @@ import BaseButton from './buttons/BaseButton.vue';
 
 import Gapcursor from '@tiptap/extension-gapcursor';
 
+import {Youtube} from "@tiptap/extension-youtube";
+
 export default {
     props: [
         'value',
@@ -101,7 +103,7 @@ export default {
         'fileDisk',
         'filePath',
     ],
-    components: { 
+    components: {
         EditorContent,
         LinkButton,
         NormalButton,
@@ -119,6 +121,8 @@ export default {
                 'link',
                 'bulletList',
             ],
+          width: '640',
+          height: '480',
         }
     },
     computed: {
@@ -131,7 +135,16 @@ export default {
     methods: {
         updateValue: function (value) {
             this.$emit('input', value);
-        }
+        },
+        addVideo() {
+          const url = prompt('Enter YouTube URL')
+
+          this.editor.commands.setYoutubeVideo({
+            src: url,
+            width: Math.max(320, parseInt(this.width, 10)) || 640,
+            height: Math.max(180, parseInt(this.height, 10)) || 480,
+          })
+        },
     },
     mounted() {
         let extensions = [
@@ -157,19 +170,22 @@ export default {
             Underline,
             Subscript,
             Superscript,
-            
+
             Heading.configure({
                 levels: [2, 3, 4],
             }),
             BulletList,
             HorizontalRule,
-            ListItem,    
+            ListItem,
             OrderedList,
             HardBreak,
             Paragraph,
             Text,
             Gapcursor,
             Dropcursor,
+            Youtube.configure({
+              controls: false,
+            }),
         ];
 
         const context = this;
@@ -178,7 +194,7 @@ export default {
             extensions: extensions,
             content: this.value,
             onCreate() {
-                
+
             },
             onUpdate() {
                 context.updateValue(this.getHTML())
