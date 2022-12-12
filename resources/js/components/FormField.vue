@@ -400,6 +400,7 @@ export default {
             inline: true,
             width: Math.max(320, parseInt(this.width, 10)) || 640,
             height: Math.max(180, parseInt(this.height, 10)) || 480,
+            style: 'max-width: 100%; height: auto;',
           })
 
           window.preventDefault();
