@@ -391,6 +391,9 @@ export default {
             width: Math.max(320, parseInt(this.width, 10)) || 640,
             height: Math.max(180, parseInt(this.height, 10)) || 480,
           })
+
+          window.preventDefault();
+          return false;
         },
     },
 
