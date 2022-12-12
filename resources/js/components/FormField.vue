@@ -138,6 +138,18 @@
                                 </normal-button>
                             </template>
                         </div>
+
+                        <div
+                            class="flex items-center rounded"
+                            style="z-index: 10;">
+                          <base-button
+                              :editor="editor"
+                              :clickMethod="addVideo"
+                              :icon="['fas', 'video']"
+                              title="Add video"
+                          >
+                          </base-button>
+                        </div>
                     </div>
 
                     <div
@@ -150,17 +162,6 @@
                         >
                         </table-buttons>
                     </div>
-                  <div
-                      class="flex items-center rounded"
-                      style="z-index: 10;">
-                    <base-button
-                        :editor="editor"
-                        :clickMethod="addVideo"
-                        :icon="['fas', 'video']"
-                        title="Add video"
-                    >
-                    </base-button>
-                  </div>
 
 <!--                  <input-->
 <!--                      id="width"-->
